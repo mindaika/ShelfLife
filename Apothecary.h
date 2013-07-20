@@ -1,12 +1,16 @@
-#pragma once
+#ifndef _APO
+#define _APO
 #include "Potion.h"
+#include "main.h"
+
 class Apothecary
 {
 public:
-	Apothecary(void);
-	~Apothecary(void);
-	bool BuyPotion(Potion& potion);
+	Apothecary(int, int);
+	~Apothecary();
+	bool BuyPotion(Potion&);
 	bool OrderPotion(PotionType);
 	int MakePotions();
 };
-
+#include "Apothecary.cpp"
+#endif

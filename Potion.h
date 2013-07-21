@@ -1,15 +1,23 @@
 #ifndef _POTION
 #define _POTION
+#include "main.h"
+#include <iostream>
+
+using namespace std;
 
 class Potion
 {
 private:
-	//PotionType kindOfPotion;
+	PotionType kindOfPotion;
+	Potion *nextPotion;
 public:
 	Potion();
+	Potion(PotionType);
+	/*Potion(const Potion&);*/
 	~Potion();
-	PotionType GetType();
-	//ostream& operator<<(ostream&, const Potion&);
+	void setNextPotion(Potion*);
+	Potion* getNextPotion() const;
+	PotionType GetType() const;
+	friend ostream& operator<<(ostream&, const Potion&);
 };
-#include "Potion.cpp"
 #endif

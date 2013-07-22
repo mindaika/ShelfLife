@@ -17,7 +17,7 @@ private:
 public:
 	LinkedStack();	// Default constructor
 	LinkedStack(const LinkedStack<ItemType>& aStack); // Copy constructor
-	virtual ~LinkedStack(); // Destructor
+	virtual ~LinkedStack(void); // Destructor
 
 	// Stack operations
 	bool isEmpty() const;
@@ -37,7 +37,7 @@ template<class ItemType>
 LinkedStack<ItemType>::LinkedStack(const LinkedStack<ItemType>& aStack)
 {
 	// Point to nodes in original chain
-	Node<ItemType>*origChainPtr = aStack->topPtr;
+	Node<ItemType>* origChainPtr = aStack->topPtr;
 
 	if (origChainPtr == nullptr)
 		topPtr = nullptr;
@@ -131,7 +131,10 @@ LinkedStack<ItemType>::~LinkedStack()
 {
 	// Pop...
 	// ALL THE THINGS!
-	while (!isEmpty())
+	while ( !isEmpty() )
 		pop();
+	delete topPtr;
+	topPtr = nullptr;
+	std::cout << "LinkedStack death";
 }
 #endif

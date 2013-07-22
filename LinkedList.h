@@ -55,6 +55,7 @@ template<class ItemType>
 LinkedList<ItemType>::~LinkedList()
 {
    clear();
+   delete headPtr;
 }  
 
 // isEmpty
@@ -99,7 +100,7 @@ bool LinkedList<ItemType>::insert(int newPosition, const ItemType& newEntry)
 
       itemCount++;  // Increase count of entries
    }  // end if
-   
+
    return ableToInsert;
 }  // end insert
 
@@ -159,7 +160,7 @@ ItemType LinkedList<ItemType>::getEntry(int position) const throw(PrecondViolate
    }
    else
    {
-      string message = "getEntry() called with an empty list or "; 
+      std::string message = "getEntry() called with an empty list or "; 
       message  = message + "invalid position.";
       throw(PrecondViolatedExcep(message)); 
    }  // end if
@@ -182,6 +183,5 @@ Node<ItemType>* LinkedList<ItemType>::getNodeAt(int position) const
 template<class ItemType>
 void LinkedList<ItemType>::setEntry(int position, const ItemType& newEntry) throw(PrecondViolatedExcep)
 {
-
 }
 #endif 

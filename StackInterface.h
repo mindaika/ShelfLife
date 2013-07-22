@@ -27,5 +27,7 @@ public:
 	// Postcondition: Top of stack has been returned, stack is unchanged
 	// Returns: Top of the stack
 	virtual ItemType peek() const  = 0;
+
+
 };
 #endif

@@ -14,7 +14,7 @@ private:
 public:
    ListQueue();
    ListQueue(const ListQueue& aQueue);
-   ~ListQueue();
+   virtual ~ListQueue();
    bool isEmpty() const;
    bool enqueue(const ItemType& newEntry);
    bool dequeue();
@@ -37,6 +37,7 @@ ListQueue<ItemType>::ListQueue(const ListQueue& aQueue) : listPtr(aQueue.listPtr
 template<class ItemType>
 ListQueue<ItemType>::~ListQueue()
 {
+	delete listPtr;
 }  // end destructor
 
 template<class ItemType>

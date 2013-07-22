@@ -3,8 +3,6 @@
 #include "main.h"
 #include <iostream>
 
-using namespace std;
-
 class Potion
 {
 private:
@@ -12,8 +10,8 @@ private:
 public:
 	Potion();
 	Potion( PotionType );
-	~Potion();
+	virtual ~Potion(void);
 	PotionType GetType() const;
-	friend ostream& operator<<( ostream&, const Potion& );
+	friend std::ostream& operator<<( std::ostream&, const Potion& );
 };
 #endif

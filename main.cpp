@@ -68,7 +68,7 @@ void TestApothecary()
 	OrderPotion(apo,WISDOM);
 	OrderPotion(apo,WISDOM);
 	OrderPotion(apo,SPEED);
-	/*
+	
 	MakePotions(apo);
 	
 	OrderPotion(apo,STRENGTH);
@@ -119,7 +119,7 @@ void TestApothecary()
 
 	BuyPotion(apo);
 	
-	MakePotions(apo);*/
+	MakePotions(apo);
 	
 }
 
@@ -133,6 +133,6 @@ int main() {
 		cout << "Memory leaks!" << endl;
 	}
 #endif
-
+	system("pause");
 	return 0;
 }

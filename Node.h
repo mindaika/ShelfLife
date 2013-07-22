@@ -15,7 +15,7 @@ public:
 	void setNext(Node<ItemType>*);
 	ItemType getItem() const;
 	Node<ItemType>* getNext() const;
-	~Node(void);
+	virtual ~Node(void);
 };
 
 // Default constructor
@@ -68,6 +68,8 @@ Node<ItemType>* Node<ItemType>::getNext() const
 template <class ItemType>
 Node<ItemType>::~Node(void)
 {
-
+	delete next;
+	next = nullptr;
+	std::cout << "Node death";
 }
 #endif

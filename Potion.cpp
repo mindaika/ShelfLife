@@ -1,6 +1,7 @@
 #include "Potion.h"
 
 
+
 // Default constructor
 // Creates a mystery potion
 Potion::Potion()
@@ -21,9 +22,9 @@ Potion::~Potion(void)
 }
 
 // Overloads << to return a potion
-ostream& operator<<(ostream& os, const Potion& potion)
+std::ostream& operator<<(std::ostream& os, const Potion& potion)
 {
-	os << "Potion of " << PotionTypeString( potion.GetType() ) << endl;
+	os << "Potion of " << PotionTypeString( potion.GetType() ) << std::endl;
 	return os;
 }
 

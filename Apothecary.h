@@ -19,7 +19,7 @@ private:
 public:
 	Apothecary();
 	Apothecary(int, int);
-	~Apothecary();
+	virtual ~Apothecary();
 	bool BuyPotion(Potion&);
 	bool OrderPotion(PotionType);
 	int MakePotions();

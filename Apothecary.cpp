@@ -61,7 +61,6 @@ int Apothecary::MakePotions()
 			orderList->dequeue();
 			potionsMade++;
 			delete madePotion;
-
 		}
 	}
 	return potionsMade;
@@ -70,8 +69,14 @@ int Apothecary::MakePotions()
 // Destructor
 Apothecary::~Apothecary()
 {
+	while ( !(potionShelf->isEmpty() ) )
+		potionShelf->pop();
 	delete potionShelf;
 	potionShelf = nullptr;
+	
+	while ( !(orderList->isEmpty() ) )
+		orderList->dequeue();
 	delete orderList;
 	orderList = nullptr;
+	std::cout << "Apo Death" << std::endl;
 }

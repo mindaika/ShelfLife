@@ -49,7 +49,8 @@ bool PotionShelf::isFull()
 // Destructor!
 PotionShelf::~PotionShelf(void)
 {
+	std::cout << "PotionStack Death";
 	while ( !this->isEmpty() )
 		this->pop();
-	delete this;
+	
 }

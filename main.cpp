@@ -133,6 +133,5 @@ int main() {
 		cout << "Memory leaks!" << endl;
 	}
 #endif
-	system("pause");
 	return 0;
 }

@@ -51,5 +51,14 @@ public:
     @param position  The list position of the entry to replace.
     @param newEntry  The replacement entry. */
     virtual void setEntry(int position, const ItemType& newEntry) = 0;
-}; 
+    
+    // Virtual destructor
+    virtual ~ListInterface() = 0;
+};
+
+template<class ItemType>
+ListInterface<ItemType>::~ListInterface()
+{
+    
+}
 #endif

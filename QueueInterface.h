@@ -25,6 +25,14 @@ public:
 	// Postcondition: Queue is unchanged
 	// Returns: Front of Queue
 	virtual ItemType peekFront() const = 0;
+    
+    virtual ~QueueInterface() = 0;
 };
+
+template<class ItemType>
+QueueInterface<ItemType>::~QueueInterface<ItemType>()
+{
+    // Anything
+}
 #endif
 

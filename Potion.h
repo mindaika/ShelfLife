@@ -10,7 +10,7 @@ private:
 public:
 	Potion();
 	Potion( PotionType );
-	virtual ~Potion(void);
+	~Potion(void);
 	PotionType GetType() const;
 	friend std::ostream& operator<<( std::ostream&, const Potion& );
 };

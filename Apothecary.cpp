@@ -73,10 +73,13 @@ Apothecary::~Apothecary()
 		potionShelf->pop();
 	delete potionShelf;
 	potionShelf = nullptr;
+    std::cout << "All PotionShelf relatives should be dead" << std::endl;
 	
 	while ( !(orderList->isEmpty() ) )
 		orderList->dequeue();
 	delete orderList;
 	orderList = nullptr;
+    std::cout << "All orderList relatives should be dead" << std::endl;
+    
 	std::cout << "Apo Death" << std::endl;
 }

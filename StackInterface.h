@@ -28,6 +28,13 @@ public:
 	// Returns: Top of the stack
 	virtual ItemType peek() const  = 0;
 
+    virtual ~StackInterface() = 0;
 
 };
+
+template<class ItemType>
+StackInterface<ItemType>::~StackInterface()
+{
+    // Anything
+}
 #endif

@@ -135,6 +135,6 @@ LinkedStack<ItemType>::~LinkedStack()
 		pop();
 	delete topPtr;
 	topPtr = nullptr;
-	std::cout << "LinkedStack death";
+	std::cout << "LinkedStack death" << std::endl;
 }
 #endif

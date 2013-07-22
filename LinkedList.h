@@ -56,6 +56,7 @@ LinkedList<ItemType>::~LinkedList()
 {
    clear();
    delete headPtr;
+    std::cout << "LinkedList Death" << std::endl;
 }  
 
 // isEmpty

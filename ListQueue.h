@@ -38,6 +38,7 @@ template<class ItemType>
 ListQueue<ItemType>::~ListQueue()
 {
 	delete listPtr;
+    std::cout << "ListQueue Death" << std::endl;
 }  // end destructor
 
 template<class ItemType>

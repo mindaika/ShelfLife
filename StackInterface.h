@@ -33,8 +33,5 @@ public:
 };
 
 template<class ItemType>
-StackInterface<ItemType>::~StackInterface()
-{
-    // Anything
-}
+StackInterface<ItemType>::~StackInterface<ItemType>() { }
 #endif

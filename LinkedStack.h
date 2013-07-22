@@ -2,9 +2,6 @@
 #define _LINKED_STACK
 #pragma warning( disable : 4290 )
 
-// Adapted from Carrano, 2013
-// I can NOT, for the life of me, get VS12 to compile separate header/implementation templates
-
 #include "StackInterface.h"
 #include "Node.h"
 #include "PrecondViolatedExcep.h"
@@ -135,6 +132,5 @@ LinkedStack<ItemType>::~LinkedStack()
 		pop();
 	delete topPtr;
 	topPtr = nullptr;
-	std::cout << "LinkedStack death" << std::endl;
 }
 #endif

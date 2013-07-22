@@ -1,8 +1,10 @@
 #ifndef _POTION
 #define _POTION
+
 #include "main.h"
 #include <iostream>
 
+// Object Potion
 class Potion
 {
 private:

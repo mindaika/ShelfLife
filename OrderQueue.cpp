@@ -33,5 +33,4 @@ OrderQueue::~OrderQueue(void)
 {
 	while ( !this->isEmpty() )
 		this->dequeue();
-	std::cout << "OrderQueue Death" << std::endl;
 }

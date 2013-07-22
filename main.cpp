@@ -64,7 +64,7 @@ void MakePotions(Apothecary& apo)
 void TestApothecary()
 {
 	Apothecary apo(5,20);  // order limit, shelf limit
-	
+
 	OrderPotion(apo,WISDOM);
 	OrderPotion(apo,WISDOM);
 	OrderPotion(apo,SPEED);
@@ -120,7 +120,7 @@ void TestApothecary()
 	BuyPotion(apo);
 	
 	MakePotions(apo);
-	
+
 }
 
 int main() {

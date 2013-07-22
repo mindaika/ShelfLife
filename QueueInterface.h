@@ -29,10 +29,8 @@ public:
     virtual ~QueueInterface() = 0;
 };
 
+// Requires virtual destructor definition
 template<class ItemType>
-QueueInterface<ItemType>::~QueueInterface<ItemType>()
-{
-    // Anything
-}
+QueueInterface<ItemType>::~QueueInterface<ItemType>() { }
 #endif
 

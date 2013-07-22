@@ -1,6 +1,5 @@
 #ifndef _NODE
 #define _NODE
-#include <iostream> // Not sure why, but XCode demands this
 
 template<class ItemType>
 class Node
@@ -71,6 +70,5 @@ Node<ItemType>::~Node(void)
 {
 	delete next;
 	next = nullptr;
-    std::cout << "Node death" << std::endl;
 }
 #endif

@@ -1,7 +1,6 @@
 #ifndef _LINKED_LIST
 #define _LINKED_LIST
 #pragma warning( disable : 4290 )
-// Courtesy Carrano, 2013
 
 #include "Node.h"
 #include "ListInterface.h"
@@ -17,11 +16,10 @@ private:
    int itemCount;           // Current count of list items 
    
    // Locates a specified node in this linked list.
-   // @pre  position is the number of the desired node;
-   //       position >= 1 and position <= itemCount.
-   // @post  The node is found and a pointer to it is returned.
-   // @param position  The number of the node to locate.
-   // @return  A pointer to the node at the given position.
+   // Precondition:  position is the number of the desired node;
+   //                position >= 1 and position <= itemCount.
+   // Postcondition: The node is found and a pointer to it is returned.
+   // Returns: A pointer to the node at the given position.
    Node<ItemType>* getNodeAt(int position) const;
 
 public:
@@ -35,7 +33,7 @@ public:
    bool remove(int position);
    void clear();
    
-   /** @throw PrecondViolatedExcep if position < 1 or 
+   /** @throw PrecondViolatedExcep if position < 1 or
                                       position > getLength(). */
    ItemType getEntry(int position) const throw(PrecondViolatedExcep);
 
@@ -54,9 +52,9 @@ LinkedList<ItemType>::LinkedList() : headPtr(nullptr), itemCount(0)
 template<class ItemType>
 LinkedList<ItemType>::~LinkedList()
 {
-   clear();
-   delete headPtr;
-    std::cout << "LinkedList Death" << std::endl;
+    clear();
+    delete headPtr;
+    headPtr = nullptr;
 }  
 
 // isEmpty
@@ -97,13 +95,13 @@ bool LinkedList<ItemType>::insert(int newPosition, const ItemType& newEntry)
          // Insert new node after node to which prevPtr points
          newNodePtr->setNext(prevPtr->getNext()); 
          prevPtr->setNext(newNodePtr);
-      }  // end if
+      }
 
       itemCount++;  // Increase count of entries
-   }  // end if
+   }
 
    return ableToInsert;
-}  // end insert
+} 
 
 template<class ItemType>
 bool LinkedList<ItemType>::remove(int position)
@@ -129,7 +127,7 @@ bool LinkedList<ItemType>::remove(int position)
          // Disconnect indicated node from chain by connecting the
          // prior node with the one after
          prevPtr->setNext(curPtr->getNext());
-      }  // end if
+      }  
       
       // Return node to system
       curPtr->setNext(nullptr);
@@ -137,17 +135,17 @@ bool LinkedList<ItemType>::remove(int position)
       curPtr = nullptr;
       
       itemCount--;  // Decrease count of entries
-   }  // end if
+   }
    
    return ableToRemove;
-}  // end remove
+}
 
 template<class ItemType>
 void LinkedList<ItemType>::clear()
 {
    while (!isEmpty())
       remove(1);
-}  // end clear
+}
 
 template<class ItemType>
 ItemType LinkedList<ItemType>::getEntry(int position) const throw(PrecondViolatedExcep)
@@ -164,8 +162,8 @@ ItemType LinkedList<ItemType>::getEntry(int position) const throw(PrecondViolate
       std::string message = "getEntry() called with an empty list or "; 
       message  = message + "invalid position.";
       throw(PrecondViolatedExcep(message)); 
-   }  // end if
-}  // end getEntry
+   }
+}
 
 template<class ItemType>
 Node<ItemType>* LinkedList<ItemType>::getNodeAt(int position) const
@@ -179,7 +177,7 @@ Node<ItemType>* LinkedList<ItemType>::getNodeAt(int position) const
       curPtr = curPtr->getNext();
       
    return curPtr;
-}  // end getNodeAt
+}
 
 template<class ItemType>
 void LinkedList<ItemType>::setEntry(int position, const ItemType& newEntry) throw(PrecondViolatedExcep)

@@ -1,7 +1,6 @@
 #ifndef _APO
 #define _APO
 
-
 #include "main.h"
 #include "Potion.h"
 #include "PotionShelf.h"
@@ -19,7 +18,7 @@ private:
 public:
 	Apothecary();
 	Apothecary(int, int);
-	virtual ~Apothecary();
+	~Apothecary();
 	bool BuyPotion(Potion&);
 	bool OrderPotion(PotionType);
 	int MakePotions();

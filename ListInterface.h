@@ -56,9 +56,7 @@ public:
     virtual ~ListInterface() = 0;
 };
 
+// Virtual destructor definition
 template<class ItemType>
-ListInterface<ItemType>::~ListInterface()
-{
-    
-}
+ListInterface<ItemType>::~ListInterface<ItemType>() { }
 #endif

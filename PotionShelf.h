@@ -4,6 +4,7 @@
 #include "LinkedStack.h"
 #include "Potion.h"
 
+// PotionShelf manages a Stack of potions
 class PotionShelf : public LinkedStack<Potion>
 {
 private:

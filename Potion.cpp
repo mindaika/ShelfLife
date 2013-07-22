@@ -1,7 +1,5 @@
 #include "Potion.h"
 
-
-
 // Default constructor
 // Creates a mystery potion
 Potion::Potion()

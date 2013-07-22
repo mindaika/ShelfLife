@@ -3,7 +3,6 @@
 // Default Constuctor
 Apothecary::Apothecary()
 {
-
 	potionShelf = new PotionShelf();
 	orderList = new OrderQueue();
 }
@@ -55,14 +54,17 @@ int Apothecary::MakePotions()
 		madePotion = new Potion(orderList->peekFront());
 		if ( static_cast<PotionShelf*>(potionShelf)->isFull() ) {
 			std::cout << "The shelf of potions is full.  You can't make any more until somebody buys some." << std::endl;
+            delete madePotion;
 			break;
 		} else if ( potionShelf->push(*madePotion) ) {
 			std::cout << "Made a " << PotionTypeString( orderList->peekFront() ) << " potion." << std::endl;
 			orderList->dequeue();
 			potionsMade++;
-			delete madePotion;
+            delete madePotion;
 		}
+        
 	}
+    madePotion = nullptr;
 	return potionsMade;
 }
 
@@ -73,13 +75,9 @@ Apothecary::~Apothecary()
 		potionShelf->pop();
 	delete potionShelf;
 	potionShelf = nullptr;
-    std::cout << "All PotionShelf relatives should be dead" << std::endl;
 	
 	while ( !(orderList->isEmpty() ) )
 		orderList->dequeue();
 	delete orderList;
 	orderList = nullptr;
-    std::cout << "All orderList relatives should be dead" << std::endl;
-    
-	std::cout << "Apo Death" << std::endl;
 }

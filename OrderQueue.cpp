@@ -12,7 +12,7 @@ OrderQueue::OrderQueue(int limit)
 	currentOrders = 0;
 }
 
-bool OrderQueue::enqueue(const Potion& potion)
+bool OrderQueue::enqueue(const PotionType& potion)
 {
 	bool successful = false;
 	if ( currentOrders < orderLimit ) {
@@ -23,6 +23,15 @@ bool OrderQueue::enqueue(const Potion& potion)
 	return successful;
 }
 
+bool OrderQueue::dequeue() 
+{
+	currentOrders--;
+	return( ListQueue::dequeue() );
+}
+
 OrderQueue::~OrderQueue(void)
 {
+	while ( !this->isEmpty() )
+		this->dequeue();
+	delete this;
 }

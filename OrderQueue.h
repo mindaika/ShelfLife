@@ -4,7 +4,7 @@
 #include "ListQueue.h"
 #include "Potion.h"
 
-class OrderQueue : public ListQueue<Potion>
+class OrderQueue : public ListQueue<PotionType>
 {
 private:
 	int orderLimit;
@@ -14,7 +14,8 @@ public:
 	OrderQueue(int);
 	~OrderQueue(void);
 
-	bool enqueue(const Potion&); 
+	bool enqueue(const PotionType&);
+	bool dequeue();
 };
 #endif
 

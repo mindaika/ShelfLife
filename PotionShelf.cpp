@@ -37,7 +37,19 @@ bool PotionShelf::pop()
 	return successful;
 }
 
+// Tests to see if space is available
+bool PotionShelf::isFull()
+{
+	bool shelfFull = false;
+	if ( potionsOnShelf >= shelfLimit )
+		shelfFull = true;
+	return shelfFull;
+}
+
 // Destructor!
 PotionShelf::~PotionShelf(void)
 {
+	while ( !this->isEmpty() )
+		this->pop();
+	delete this;
 }

@@ -3,30 +3,17 @@
 // Default Constuctor
 Apothecary::Apothecary()
 {
-	orderLimit = 20;
-	shelfLimit = 5;
-	potionsOnShelf = 0;
-	orderQueue = nullptr;
-	orderHead = nullptr;
-	orderCount = 0;
-	stackPtr = nullptr;
-	PotionShelf* potionShelf = new PotionShelf();
-	OrderQueue* orderList = new OrderQueue();
+
+	potionShelf = new PotionShelf();
+	orderList = new OrderQueue();
 }
 
 
 // Constructor
 Apothecary::Apothecary(int order, int shelf)
 {
-	orderLimit = order;
-	shelfLimit = shelf;
-	potionsOnShelf = 0;
-	orderQueue = nullptr;
-	orderHead = nullptr;
-	orderCount = 0;
-	stackPtr = nullptr;
-	PotionShelf* potionShelf = new PotionShelf(shelf);
-	OrderQueue* orderList = new OrderQueue(order);
+	potionShelf = new PotionShelf(shelf);
+	orderList = new OrderQueue(order);
 }
 
 
@@ -37,17 +24,9 @@ Apothecary::Apothecary(int order, int shelf)
 // Returns: Success/failure
 bool Apothecary::BuyPotion(Potion& potion)
 {
-	bool successFlag = false;
-	//Potion *popper;
-	//if ( !(stackPtr == nullptr) ) {
-	//	potion = *stackPtr;
-	//	popper = stackPtr;
-	//	stackPtr = stackPtr->getNextPotion();
-	//	delete popper;
-	//	successFlag = true;
-	//	potionsOnShelf--;
-	//}
-	return successFlag;
+	if ( !potionShelf->isEmpty() )
+		potion = potionShelf->peek();
+	return ( potionShelf->pop() );
 }
 
 // Takes orders for Potions, up to size of orderLimit
@@ -57,24 +36,8 @@ bool Apothecary::BuyPotion(Potion& potion)
 bool Apothecary::OrderPotion(PotionType potion)
 {
 	bool orderAccepted = false;
-	
-	/*Potion *nextOrder;
-
-	if ( orderCount < orderLimit ) {
-		nextOrder = new Potion(potion);
-		if ( orderHead == nullptr ) {
-			orderHead = nextOrder;
-			orderQueue = nextOrder;
-		} else {
-			orderQueue->setNextPotion(nextOrder);
-			orderQueue = nextOrder;
-		}
-		orderCount++;
-		orderAccepted = true;
-	} else {
-		orderAccepted = false;
-	}
-	*/
+	if ( orderList->enqueue(potion) )
+		orderAccepted = true;	
 	return orderAccepted;
 }
 
@@ -86,48 +49,29 @@ bool Apothecary::OrderPotion(PotionType potion)
 int Apothecary::MakePotions()
 {
 	int potionsMade = 0;
+	Potion *madePotion;
 	
-	/*
-	Potion *order = nullptr;
-	order = orderHead;
-	orderHead = orderHead->getNextPotion();
-	*/
-	/*
-	Potion *order = nullptr;
-	while ( (potionsOnShelf < shelfLimit) && !(orderHead == nullptr) ) {
-		Potion *nextPotion = new Potion(orderHead->GetType());
-		nextPotion->setNextPotion(stackPtr);
-		order = orderHead;
-		orderHead = orderHead->getNextPotion();
-		delete order;
-		stackPtr = nextPotion;
-		std::cout << "Made a " << PotionTypeString(nextPotion->GetType()) << " potion." << std::endl;
-		potionsOnShelf++;
-		potionsMade++;
+	while ( !orderList->isEmpty() ) {
+		madePotion = new Potion(orderList->peekFront());
+		if ( static_cast<PotionShelf*>(potionShelf)->isFull() ) {
+			std::cout << "The shelf of potions is full.  You can't make any more until somebody buys some." << std::endl;
+			break;
+		} else if ( potionShelf->push(*madePotion) ) {
+			std::cout << "Made a " << PotionTypeString( orderList->peekFront() ) << " potion." << std::endl;
+			orderList->dequeue();
+			potionsMade++;
+			delete madePotion;
+
+		}
 	}
-	if ( (potionsOnShelf == shelfLimit) && !(orderHead == nullptr) ) {
-		cout << "The shelf of potions is full.  You can't make any more until somebody buys some." << endl;
-	}
-	orderCount = 0;*/
 	return potionsMade;
 }
 
 // Destructor
 Apothecary::~Apothecary()
 {
-	/*Potion* killJoy = nullptr;
-	
-	while ( !(stackPtr == nullptr) ) {
-		killJoy = stackPtr->getNextPotion();
-		delete stackPtr;
-		stackPtr = killJoy;
-	}
-
-	while ( !(orderHead == nullptr) ) {
-		killJoy = orderHead->getNextPotion();
-		delete orderHead;
-		orderHead = killJoy;
-	}
-
-	orderQueue = nullptr;*/
+	delete potionShelf;
+	potionShelf = nullptr;
+	delete orderList;
+	orderList = nullptr;
 }

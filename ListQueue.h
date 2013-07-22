@@ -11,7 +11,6 @@ class ListQueue : public QueueInterface<ItemType>
 {
 private:
    LinkedList<ItemType>* listPtr; // Pointer to list of queue items
-   
 public:
    ListQueue();
    ListQueue(const ListQueue& aQueue);

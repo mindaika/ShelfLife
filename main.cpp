@@ -68,7 +68,7 @@ void TestApothecary()
 	OrderPotion(apo,WISDOM);
 	OrderPotion(apo,WISDOM);
 	OrderPotion(apo,SPEED);
-
+	/*
 	MakePotions(apo);
 	
 	OrderPotion(apo,STRENGTH);
@@ -119,15 +119,14 @@ void TestApothecary()
 
 	BuyPotion(apo);
 	
-	MakePotions(apo);
-
+	MakePotions(apo);*/
+	
 }
 
 int main() {
-	
-	TestApothecary();
-	system("pause");
 
+	TestApothecary();
+	
 
 #ifdef _WIN32
 	if (_CrtDumpMemoryLeaks()) {

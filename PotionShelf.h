@@ -9,13 +9,18 @@ class PotionShelf : public LinkedStack<Potion>
 private:
 	int potionsOnShelf; // Shelf stock
 	int shelfLimit;		// Shelf limit
+	
 public:
 	// Makers and breakers
 	PotionShelf(void);
 	PotionShelf(int);
 	~PotionShelf(void);
-
+	
+	// Overrides
 	bool push(const Potion&);
 	bool pop();
+
+	// Test to see if shelf is full
+	bool isFull();
 };
 #endif

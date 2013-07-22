@@ -8,16 +8,12 @@ using namespace std;
 class Potion
 {
 private:
-	PotionType kindOfPotion;
-	Potion *nextPotion;
+	PotionType typeOfPotion;
 public:
 	Potion();
-	Potion(PotionType);
-	/*Potion(const Potion&);*/
+	Potion( PotionType );
 	~Potion();
-	void setNextPotion(Potion*);
-	Potion* getNextPotion() const;
 	PotionType GetType() const;
-	friend ostream& operator<<(ostream&, const Potion&);
+	friend ostream& operator<<( ostream&, const Potion& );
 };
 #endif

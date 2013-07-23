@@ -58,5 +58,5 @@ public:
 
 // Virtual destructor definition
 template<class ItemType>
-ListInterface<ItemType>::~ListInterface<ItemType>() { }
+ListInterface<ItemType>::~ListInterface() { }
 #endif

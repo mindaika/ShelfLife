@@ -1,7 +1,6 @@
 #include <iostream>
 #include "Apothecary.h"
 
-
 #ifdef _WIN32
 #define _CRTDBG_MAP_ALLOC
 #include <stdlib.h>
@@ -64,11 +63,11 @@ void MakePotions(Apothecary& apo)
 void TestApothecary()
 {
 	Apothecary apo(5,20);  // order limit, shelf limit
-
+	
 	OrderPotion(apo,WISDOM);
 	OrderPotion(apo,WISDOM);
 	OrderPotion(apo,SPEED);
-	
+
 	MakePotions(apo);
 	
 	OrderPotion(apo,STRENGTH);
@@ -126,12 +125,12 @@ void TestApothecary()
 int main() {
 
 	TestApothecary();
-	
 
 #ifdef _WIN32
 	if (_CrtDumpMemoryLeaks()) {
 		cout << "Memory leaks!" << endl;
 	}
 #endif
+
 	return 0;
 }

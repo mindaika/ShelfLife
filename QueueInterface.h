@@ -33,4 +33,3 @@ public:
 template<class ItemType>
 QueueInterface<ItemType>::~QueueInterface() { }
 #endif
-

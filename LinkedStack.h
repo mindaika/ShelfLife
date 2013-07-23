@@ -25,9 +25,7 @@ public:
 
 // Default constructor
 template<class ItemType>
-LinkedStack<ItemType>::LinkedStack() : topPtr(nullptr)
-{
-}
+LinkedStack<ItemType>::LinkedStack() : topPtr(nullptr) { }
 
 // Copy constructor
 template<class ItemType>
@@ -65,7 +63,6 @@ LinkedStack<ItemType>::LinkedStack(const LinkedStack<ItemType>& aStack)
 			// Advance pointer to last new Node
 			newChainPtr = newChainPtr->getNext();
 		}
-
 		newChainPtr->setNext(nullptr); // End of chain
 	}
 }

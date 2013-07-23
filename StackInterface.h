@@ -1,6 +1,5 @@
 #ifndef _STACK_INTERFACE
 #define _STACK_INTERFACE
-// Adapted from Carrano, 2013
 
 template<class ItemType>
 class StackInterface

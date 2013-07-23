@@ -7,14 +7,12 @@ Apothecary::Apothecary()
 	orderList = new OrderQueue();
 }
 
-
 // Constructor
 Apothecary::Apothecary(int order, int shelf)
 {
 	potionShelf = new PotionShelf(shelf);
 	orderList = new OrderQueue(order);
 }
-
 
 // Purchases the available Potion from the Apothecary (if possible)
 // Otherise, slogs off in shame, probably to get eaten by a dragon

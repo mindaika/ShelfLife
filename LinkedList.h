@@ -44,18 +44,7 @@ public:
   
 // Default constructor
 template<class ItemType>
-LinkedList<ItemType>::LinkedList() : headPtr(nullptr), itemCount(0)
-{
-}  
-
-// Destructor!
-template<class ItemType>
-LinkedList<ItemType>::~LinkedList()
-{
-    clear();
-    delete headPtr;
-    headPtr = nullptr;
-}  
+LinkedList<ItemType>::LinkedList() : headPtr(nullptr), itemCount(0) { }  
 
 // isEmpty
 template<class ItemType>
@@ -180,7 +169,28 @@ Node<ItemType>* LinkedList<ItemType>::getNodeAt(int position) const
 }
 
 template<class ItemType>
-void LinkedList<ItemType>::setEntry(int position, const ItemType& newEntry) throw(PrecondViolatedExcep)
+void LinkedList<ItemType>::setEntry(int position, const ItemType& newEntry) throw(PrecondViolatedExcep) 
 {
+	// Enforce precondition
+	bool ableToSet = (position >= 1) && (position <= itemCount);
+	if (ableToSet)
+	{
+		insert(position, newEntry);
+	}
+	else
+	{
+		std::string message = "setEntry() called with "; 
+		message  = message + "invalid position.";
+		throw(PrecondViolatedExcep(message)); 
+	}
 }
+
+// Destructor!
+template<class ItemType>
+LinkedList<ItemType>::~LinkedList()
+{
+    clear();
+    delete headPtr;
+    headPtr = nullptr;
+}  
 #endif 

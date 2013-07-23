@@ -21,4 +21,3 @@ public:
 	bool dequeue();
 };
 #endif
-

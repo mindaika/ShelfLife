@@ -7,7 +7,7 @@
 #include <crtdbg.h>
 #endif
 
-using namespace std;
+// MODIFIED FROM SOURCE
 
 char* PotionTypeString(PotionType type)
 {
@@ -35,10 +35,10 @@ void BuyPotion(Apothecary& apo)
 {
 	Potion potion;
 	if (apo.BuyPotion(potion)) {
-		cout << "Congratulations! You just bought a " << PotionTypeString(potion.GetType()) << " potion!" << endl;
-		cout << potion;
+		std::cout << "Congratulations! You just bought a " << PotionTypeString(potion.GetType()) << " potion!" << std::endl;
+		std::cout << potion;
 	} else {
-		cout << "There were no potions available." << endl;
+		std::cout << "There were no potions available." << std::endl;
 	}
 }
 
@@ -46,18 +46,18 @@ void OrderPotion(Apothecary& apo,PotionType type)
 {
 	bool ret = apo.OrderPotion(type);
 	if (ret) {
-		cout << "Your potion (" << PotionTypeString(type) << ") has been added to the queue!" << endl;
+		std::cout << "Your potion (" << PotionTypeString(type) << ") has been added to the queue!" << std::endl;
 	} else {
-		cout << "The order queue is full." << endl;
+		std::cout << "The order queue is full." << std::endl;
 	}
 
 }
 
 void MakePotions(Apothecary& apo)
 {
-	cout << "About to try to make some potions." << endl;
+	std::cout << "About to try to make some potions." << std::endl;
 	int count = apo.MakePotions();
-	cout << "Made " << count << " potions." << endl;
+	std::cout << "Made " << count << " potions." << std::endl;
 }
 
 void TestApothecary()
@@ -128,9 +128,11 @@ int main() {
 
 #ifdef _WIN32
 	if (_CrtDumpMemoryLeaks()) {
-		cout << "Memory leaks!" << endl;
+		std::cout << "Memory leaks!" << std::endl;
 	}
 #endif
 
+	std::cout << "Press Return to exit...";
+	getchar();
 	return 0;
 }
